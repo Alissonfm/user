@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-
 @CrossOrigin
 @RestController
 @RequestMapping("/addresses")
@@ -22,12 +21,27 @@ public class AddressResource {
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public Address save(@RequestBody final Address address) {
-        return this.addressService.save(address);
+    public Address saveOrUpdate(@RequestBody final Address address) {
+        return this.addressService.saveOrUpdate(address);
+    }
+
+    @RequestMapping(value = "/update", method = RequestMethod.PUT)
+    public Address update(@RequestBody final Address address) {
+        return this.addressService.saveOrUpdate(address);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Optional<Address> getById(@PathVariable final Integer id) {
         return this.addressService.getById(id);
+    }
+
+    @RequestMapping(value = "/all", method = RequestMethod.GET)
+    public List<Address> getAll() {
+        return this.addressService.getAll();
+    }
+
+    @RequestMapping(method = RequestMethod.DELETE)
+    public void delete(@RequestBody final Address address) {
+        this.addressService.delete(address);
     }
 }
