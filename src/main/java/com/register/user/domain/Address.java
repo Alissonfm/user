@@ -17,7 +17,7 @@ public class Address implements Serializable {
     private Integer number;
     private String description;
     private String complement;
-    @OneToOne(mappedBy = "address")
+    @OneToOne
     private TypeAddress typeAddress;
     @ManyToOne
     private People people;

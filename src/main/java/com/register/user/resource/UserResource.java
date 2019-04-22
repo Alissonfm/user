@@ -39,8 +39,15 @@ public class UserResource {
         return this.userService.getAll();
     }
 
-    @RequestMapping(method = RequestMethod.DELETE)
+    @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
     public void delete(@RequestBody final User user) {
         this.userService.delete(user);
     }
+    
+    @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
+    public User authenticate(@RequestBody final User user) {
+    	System.out.println(user);
+        return this.userService.authenticate(user);
+    }
+    
 }

@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @CrossOrigin
 @RestController
-@RequestMapping(value = "/typeAddresses")
+@RequestMapping(value = "/type-addresses")
 public class TypeAddressResource {
     private final TypeAddressService typeAddressService;
 
@@ -39,8 +39,8 @@ public class TypeAddressResource {
         return this.typeAddressService.getAll();
     }
 
-    @RequestMapping(method = RequestMethod.DELETE)
-    public void delete(@RequestBody final TypeAddress typeAddress) {
-        this.typeAddressService.delete(typeAddress);
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public void delete(@PathVariable final Integer id) {
+        this.typeAddressService.delete(id);
     }
 }

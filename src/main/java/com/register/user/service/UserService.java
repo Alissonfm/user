@@ -32,4 +32,19 @@ public class UserService {
     public void delete(final User user) {
         this.userRepository.delete(user);
     }
+    
+    public User authenticate(final User user) {
+    	List<User> users = this.getAll();
+
+    	for(User item: users) {
+    		if(
+				item.getLogin().equals(user.getLogin()) && 
+				item.getPassword().equals(user.getPassword())
+			) {
+    			return item;
+    		}
+    	}
+    	
+    	return null;
+    }
 }

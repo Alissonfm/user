@@ -12,9 +12,6 @@ public class TypeAddress implements Serializable {
     private Integer id;
     private String name;
     private boolean active;
-    @OneToOne
-    @JoinColumn(name = "address_id", referencedColumnName = "id")
-    private Address address;
 
     public TypeAddress() {}
 
@@ -42,15 +39,6 @@ public class TypeAddress implements Serializable {
 
     public TypeAddress setActive(boolean active) {
         this.active = active;
-        return this;
-    }
-
-    public Address getAddress() {
-        return address;
-    }
-
-    public TypeAddress setAddress(Address address) {
-        this.address = address;
         return this;
     }
 

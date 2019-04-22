@@ -27,6 +27,7 @@ public class AddressResource {
 
     @RequestMapping(value = "/update", method = RequestMethod.PUT)
     public Address update(@RequestBody final Address address) {
+    	System.out.println(address);
         return this.addressService.saveOrUpdate(address);
     }
 
@@ -40,8 +41,8 @@ public class AddressResource {
         return this.addressService.getAll();
     }
 
-    @RequestMapping(method = RequestMethod.DELETE)
-    public void delete(@RequestBody final Address address) {
-        this.addressService.delete(address);
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public void delete(@PathVariable final Integer id) {
+        this.addressService.delete(id);
     }
 }

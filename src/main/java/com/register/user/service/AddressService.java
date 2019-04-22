@@ -30,7 +30,7 @@ public class AddressService {
         return this.addressRepository.findAll();
     }
 
-    public void delete(final Address address) {
-        this.addressRepository.delete(address);
+    public void delete(final Integer id) {
+        this.addressRepository.delete(this.getById(id).get());
     }
 }

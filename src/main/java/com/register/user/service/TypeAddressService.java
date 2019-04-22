@@ -30,7 +30,7 @@ public class TypeAddressService {
         return this.typeAddressRepository.findAll();
     }
 
-    public void delete(final TypeAddress typeAddress) {
-        this.typeAddressRepository.delete(typeAddress);
+    public void delete(final Integer id) {
+        this.typeAddressRepository.delete(this.getById(id).get());
     }
 }
